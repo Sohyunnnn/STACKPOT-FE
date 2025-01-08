@@ -22,5 +22,4 @@ ex) close #100
 - [ ] Reviewers를 지정해주세요
 - [ ] Assignees는 본인을 선택해주세요
 - [ ] label을 선택해주세요
-- [ ] Merge 하려는 브랜치가 올바른가? (`main` branch에 실수로 PR 생성 금지)
-- [ ] Merge 하려는 PR 및 Commit들을 **로컬**에서 실행했을 때 에러가 발생하지 않았는가?
+- [ ] Merge 하려는 PR 및 Commit들을 **로컬**에서 실행했을 때 생하지 않았나요?
