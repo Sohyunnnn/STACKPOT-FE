@@ -8,6 +8,20 @@
     "skipLibCheck": true,
     "jsxImportSource": "@emotion/react",
 
+    "baseUrl": "src",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@api/*": ["api/*"],
+      "@constants/*": ["constants/*"],
+      "@utils/*": ["utils/*"],
+      "@lib/*": ["lib/*"],
+      "@styles/*": ["styles/*"],
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@assets/*": ["assets/*"],
+      "@features/*": ["features/*"]
+    },
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
