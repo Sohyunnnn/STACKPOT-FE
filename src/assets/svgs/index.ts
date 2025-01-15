@@ -8,7 +8,7 @@ export { default as ArrowDownIcon } from "./arrowdownIcon.svg?react";
 export { default as Profile } from "./profile.svg?react";
 export { default as HomeIcon } from "./homeIcon.svg?react";
 export { default as MyPotIcon } from "./mypotIcon.svg?react";
-export { default as SpotIcon } from "./spotIcon.svg?react";
+export { default as PotIcon } from "./pot.svg?react";
 export { default as SaveIcon } from "./saveIcon.svg?react";
 export { default as SetUpIcon } from "./setupIcon.svg?react";
 export { default as CloseIcon } from "./closeIcon.svg?react";
