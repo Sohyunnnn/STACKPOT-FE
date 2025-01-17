@@ -11,4 +11,5 @@ export { default as MyPotIcon } from "./myPot.svg?react";
 export { default as PotIcon } from "./pot.svg?react";
 export { default as SetUpIcon } from "./setUp.svg?react";
 export { default as CloseIcon } from "./closeIcon.svg?react";
+export { default as CheckIcon } from "./check.svg?react";
 export { default as SearchIcon } from "./search.svg?react";
