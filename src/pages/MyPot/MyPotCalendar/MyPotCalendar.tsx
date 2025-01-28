@@ -81,6 +81,7 @@ const MyPotCalendar = () => {
               <p css={noticeStyle}>일정이 없습니다</p>
             ) : (
               taskData.map((task) => <TaskBox task={task} key={task.id} />)
+              //
             )}
           </div>
         </div>
