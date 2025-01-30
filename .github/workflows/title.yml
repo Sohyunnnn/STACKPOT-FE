@@ -10,10 +10,16 @@ jobs:
     container: pandoc/latex
     steps:
       - uses: actions/checkout@v2
+
       - name: Install mustache (to update the date)
         run: apk add ruby && gem install mustache
+
       - name: creates output
         run: sh ./build.sh
+
+      - name: Set up VITE_AUTH_TOKEN environment variable
+        run: echo "VITE_AUTH_TOKEN=${{ secrets.VITE_AUTH_TOKEN }}" >> $GITHUB_ENV
+
       - name: Pushes to another repository
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@main
@@ -26,5 +32,11 @@ jobs:
           user-email: ${{ secrets.EMAIL }}
           commit-message: ${{ github.event.commits[0].message }}
           target-branch: main
+
+      - name: Deploy to Vercel
+        run: |
+          echo "Deploying to Vercel..."
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --env VITE_AUTH_TOKEN=${{ secrets.VITE_AUTH_TOKEN }}
+
       - name: Test get variable exported by push-to-another-repository
         run: echo $DESTINATION_CLONED_DIRECTORY
