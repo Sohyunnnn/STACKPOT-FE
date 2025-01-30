@@ -10,7 +10,7 @@ jobs:
     container: pandoc/latex
     steps:
       - uses: actions/checkout@v2
-
+      
       - name: Install mustache (to update the date)
         run: apk add ruby && gem install mustache
 
@@ -33,10 +33,13 @@ jobs:
           commit-message: ${{ github.event.commits[0].message }}
           target-branch: main
 
+      - name: Install Vercel CLI with Yarn
+        run: yarn global add vercel
+
       - name: Deploy to Vercel
         run: |
           echo "Deploying to Vercel..."
           vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --env VITE_AUTH_TOKEN=${{ secrets.VITE_AUTH_TOKEN }}
-
+      
       - name: Test get variable exported by push-to-another-repository
         run: echo $DESTINATION_CLONED_DIRECTORY
