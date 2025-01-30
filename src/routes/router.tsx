@@ -60,7 +60,6 @@ const router = createBrowserRouter([
       {
         path: routes.signUp,
         element: <SignUpPage />,
-
       },
       {
         path: routes.potDetail,
@@ -82,6 +81,7 @@ const router = createBrowserRouter([
       {
         path: routes.myPot.base,
         // element: <MyPotMainPage />,
+        //
         children: [
           { path: routes.myPot.calendar, element: <MyPotCalendarPage /> },
         ],
