@@ -19,6 +19,7 @@ jobs:
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.STACKPOT_KEY }}
+          VITE_AUTH_TOKEN: ${{ secrets.VITE_AUTH_TOKEN }}
         with:
           source-directory: "output"
           destination-github-username: Sohyunnnn
