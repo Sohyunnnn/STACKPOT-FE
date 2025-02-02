@@ -23,6 +23,7 @@ const MadePotPage = () => {
           <>
             {recruitingPots.map((pot) =>
               <PotInformationCard
+                key={pot.id}
                 {...pot}
                 type="made"
                 onButtonClick={handleEditPot} />)}
@@ -32,6 +33,7 @@ const MadePotPage = () => {
           <>
             {onGoingPots.map((pot) =>
               <OnGoingPotCard
+                key={pot.id}
                 {...pot} />)}
           </>
         </Section>
@@ -39,6 +41,7 @@ const MadePotPage = () => {
           <>
             {finishedPots.map((pot) =>
               <FinishedPotCard
+                key={pot.id}
                 {...pot} />)}
           </>
         </Section>
