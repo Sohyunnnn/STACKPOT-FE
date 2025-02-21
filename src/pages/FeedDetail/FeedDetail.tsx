@@ -1,3 +1,4 @@
+import React from "react";
 import { LeftIcon } from "@assets/svgs";
 import {
   contentStyle,
@@ -75,7 +76,14 @@ const FeedDetail = () => {
         </div>
         <div css={dividerStyle} />
       </div>
-      <div css={contentStyle}>{data?.content}</div>
+      <div css={contentStyle}>
+        {data?.content.split('\n').map((line, index) => (
+          <React.Fragment key={index}>
+            {line}
+            <br />
+          </React.Fragment>
+        ))}
+      </div>
     </main>
   );
 };
