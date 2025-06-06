@@ -2,38 +2,9 @@ import { css } from '@emotion/react';
 import { spin } from '@styles/animation';
 import theme from '@styles/theme';
 
-export const feedWriteContainer = css`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 22px 37px;
-	border: 1px solid ${theme.color.accent.blueBg};
-	border-radius: 8px;
-	background-color: #fff;
-	cursor: pointer;
-	margin-bottom: 32px;
-
-	&:hover {
-		background-color: ${theme.color.point.normal};
-
-		& p {
-			color: ${theme.color.object.hero};
-		}
-	}
-`;
-
-export const feedWriteText = css`
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-	font-size: 1.6rem;
-	color: ${theme.color.point.alternative};
-
-	font-weight: 500;
-`;
 
 export const feedWriteButton = css`
-	padding: 11px 16px;
+	padding: 1.1rem 1.6rem;
 	background-color: ${theme.color.point.hero};
 	color: ${theme.color.base.white};
 	border-radius: 20px;
@@ -52,7 +23,7 @@ export const contentHeader = css`
 export const buttonContainer = css`
 	display: flex;
 	flex-direction: row;
-	gap: 8px;
+	gap: 0.8rem;
 	align-items: center;
 	justify-content: left;
 `;
@@ -79,31 +50,26 @@ export const iconContainer = css`
 	justify-content: center;
 	display: flex;
 `;
-export const profileStyle = css`
-	width: 50px;
-	border: 1px solid ${theme.color.object.alternative};
-	border-radius: 50%;
-	background-color: ${theme.color.point.ivory};
-`;
+
 
 export const emptyFeedFallbackStyle = css`
 	text-align: center;
-	height: 960px;
+	height: 96rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 16px;
+	gap: 1.6rem;
 	align-self: stretch;
 
 	div {
-		font-size: 20px;
+		font-size: 2rem;
 		align-items: center;
 	}
 
 	p {
 		${theme.font.title1};
-		margin-top: 8px;
+		margin-top: 0.8rem;
 		color: ${theme.color.object.hero};
 	}
 `;
