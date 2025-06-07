@@ -30,8 +30,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.11.0'
+          node-version: '18.20.5'
           cache: 'npm'
+
+      - name: Create .npmrc with Mobiscroll token
+        run: echo "@mobiscroll:registry=https://npm.mobiscroll.com/\n//npm.mobiscroll.com/:_authToken=${{ secrets.MOBISCROLL_TOKEN }}" > ~/.npmrc
 
       - name: Install dependencies
         run: npm install
