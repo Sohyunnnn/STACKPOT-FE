@@ -34,7 +34,9 @@ jobs:
           cache: 'npm'
 
       - name: Create .npmrc with Mobiscroll token
-        run: echo "@mobiscroll:registry=https://npm.mobiscroll.com/\n//npm.mobiscroll.com/:_authToken=${{ secrets.MOBISCROLL_TOKEN }}" > ~/.npmrc
+        run: |
+          echo "@mobiscroll:registry=https://npm.mobiscroll.com/" >> ~/.npmrc
+          echo "//npm.mobiscroll.com/:_authToken=${{ secrets.MOBISCROLL_TOKEN }}" >> ~/.npmrc
       
       - name: Debug .npmrc contents
         run: cat ~/.npmrc
