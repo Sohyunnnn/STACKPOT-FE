@@ -110,7 +110,6 @@ export interface GetPotApplicationResponse {
 export interface GetPotMemberResponse {
   potMemberId: number;
   nickname: string;
-  kakaoId: string;
   potRole: Role;
   owner: boolean;
 }
@@ -146,7 +145,6 @@ export interface PostPotMemersResponse {
   potId: number;
   userId: number;
   roleName: Role;
-  kakaoId: string;
   nickname: string;
   appealContent: string;
 }
