@@ -12,7 +12,7 @@ const usePostNickname = () => {
     mutationFn: (nickname: string) => postNickname(nickname),
     onSuccess: (data) => {
       if (data.result) {
-        const { accessToken, refreshToken } = data?.result;
+        const { accessToken, refreshToken } = data.result;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("refreshToken", refreshToken);
         navigate(routes.home);

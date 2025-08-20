@@ -26,7 +26,7 @@ import { useNavigate } from "react-router-dom";
 import routes from "@constants/routes";
 import Modal from "@components/commons/Modal/Modal";
 import useCancelApply from "apis/hooks/pots/useCancelApply";
-import { PotSummaryModal } from "@pages/MyPage/components";
+import { PotSummaryModal } from "@components/commons/ProfileContent";
 import { DateRangeIcon, FlagIcon, WebTrafficIcon } from "@assets/svgs";
 import { participationKoreanMap } from "@constants/categories";
 
@@ -76,12 +76,12 @@ const MyPotCard: React.FC<MyPotCardProps> = ({
     type === "applied" && potStatus === "RECRUITING"
       ? "CANCEL_APPLY"
       : type === "myPage" && potStatus === "COMPLETED"
-      ? "APPEAL"
-      : (type === "myPot" || type === "myPage") &&
-        potStatus === "ONGOING" &&
-        isOwner
-      ? "FINISH_POT"
-      : "NONE";
+        ? "APPEAL"
+        : (type === "myPot" || type === "myPage") &&
+          potStatus === "ONGOING" &&
+          isOwner
+          ? "FINISH_POT"
+          : "NONE";
 
   const recruitments = Object.entries(members ?? {}).flatMap(([role, count]) =>
     Array(count).fill(role as Role)

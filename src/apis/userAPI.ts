@@ -11,16 +11,15 @@ import {
   postSignInPayload,
   SignInResponse,
   GetUserResponse,
-  MyPageResponse,
-  GetMyPageParams,
   FinishedModalResponse,
   NicknameResponse,
   PatchUserProfileUpdateParams,
-  GetUsersMyPagesParams,
-  GetUsersMyPagesResponse,
   GetUsersInfoParams,
   TokenServiceResponse,
   DescriptionResponse,
+  GetMyPagePotsParams,
+  MyPagePotsResponse,
+  MyPageFeedsResponse,
 } from "./types/user";
 import { PatchDescriptionBody, PatchPotCompleteBody, PostPotResponse } from "./types/pot";
 
@@ -49,15 +48,18 @@ export const postNickname = async (nickname: string) => {
   return authApiPost<TokenServiceResponse>("/users/nickname/save", undefined, { nickname });
 };
 
-export const GetMyPage = async ({ dataType }: GetMyPageParams) => {
-  if (dataType === 'feed') {
-    return authApiGet<MyPageResponse>("/users/mypages");
-  } else if (dataType === 'pot') {
-    return authApiGet<MyPageResponse>("/users/mypages", { dataType });
-  } else {
-    return authApiGet<DescriptionResponse>("/users/description");
-  }
+
+export const getMyPageFeeds = async () => {
+  return authApiGet<MyPageFeedsResponse>("/users/feeds");
 };
+
+export const getMyPagePots = async ({ potStatus }: GetMyPagePotsParams) => {
+  return authApiGet<MyPagePotsResponse>("/users/pots", { potStatus });
+};
+export const getMyPageDescription = async () => {
+  return authApiGet<DescriptionResponse>("/users/description");
+};
+
 
 export const GetFinishedModal = async (potId: number) => {
   return authApiGet<FinishedModalResponse>(`/my-pots/${potId}/details`);
@@ -77,13 +79,21 @@ export const deleteUser = () => {
   return authApiDelete("/users/delete");
 };
 
-export const getUsersMyPages = async ({
-  userId,
-  dataType,
-}: GetUsersMyPagesParams) => {
-  return authApiGet<GetUsersMyPagesResponse>(`/users/${userId}/mypages`, {
-    dataType,
-  });
+export const getUsersMyPagesFeeds = async (userId: number) => {
+  return authApiGet<MyPageFeedsResponse>(`/users/${userId}/feeds`);
+};
+
+export const getUsersMyPagesPots = async (
+  userId: number,
+  potStatus?: GetMyPagePotsParams['potStatus']
+) => {
+  const url = `/users/pots/${userId}`;
+  const params = potStatus ? { status } : undefined;
+  return authApiGet<MyPagePotsResponse>(url, params);
+};
+
+export const getUsersMyPagesDescription = async (userId: number) => {
+  return authApiGet<DescriptionResponse>(`/users/description/${userId}`);
 };
 
 export const getUsersInfo = async ({ userId }: GetUsersInfoParams) => {

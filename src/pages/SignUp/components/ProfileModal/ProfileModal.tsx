@@ -11,10 +11,9 @@ import { Role } from "types/role";
 import { roleImages } from "@constants/roleImage";
 import { useState } from "react";
 import useGetNickname from "apis/hooks/users/useGetNickname";
-import usePostNickname from "apis/hooks/users/usePostNickname";
 import { useAuthStore } from "stores/useAuthStore";
 import { roleDescription, roleToVeggie } from "@constants/profileRole";
-
+import usePostNickname from "apis/hooks/users/usePostNickname";
 interface ProfileModalProps {
   role: Role;
   onModalCancel: () => void;
