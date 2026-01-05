@@ -19,6 +19,7 @@ import {
   GetMyPagePotsParams,
   MyPagePotsResponse,
   MyPageFeedsResponse,
+  GetPotSummaryResponse,
   GetFeedsParams,
 } from "./types/user";
 import {
@@ -34,6 +35,7 @@ export const getKakaoLogIn = async (code: string) => {
 export const GetMyUser = async () => {
   return authApiGet<GetUserResponse>("/users");
 };
+
 export const patchSignIn = async ({ roles, interest }: postSignInPayload) => {
   return authApiPatch<SignInResponse>("/users/profile", {
     roles,
@@ -123,6 +125,10 @@ export const patchFinishedPot = async (
   body: PatchPotCompleteBody
 ) => {
   return authApiPatch<PostPotResponse>(`/users/${potId}`, body);
+};
+
+export const getPotSummary = async (potId: number) => {
+  return authApiGet<GetPotSummaryResponse>(`/users/potSummary/${potId}`);
 };
 
 export const patchDescription = async (body: PatchDescriptionBody) => {
