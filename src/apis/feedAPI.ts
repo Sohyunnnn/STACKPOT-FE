@@ -1,3 +1,4 @@
+import { FeedEngagementResponse } from "apis/types/common";
 import {
   authApiGet,
   authApiPost,
@@ -62,4 +63,8 @@ export const DeleteFeed = async (feedId: number) => {
 
 export const postFeedSeries = async (body: PostFeedSeriesParams) => {
   return authApiPost<Record<number, string>>(`/feeds/series`, body);
+};
+
+export const getFeedsLikes = async (params: { page: number; size: number }) => {
+  return authApiGet<FeedEngagementResponse>("/feeds/likes", params);
 };

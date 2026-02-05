@@ -14,7 +14,7 @@ const PopularPots = () => {
   const { data, isLoading } = useGetPots({
     page: 1,
     size: 9,
-    recruitmentRole: null,
+    recruitmentRoles: null,
     onlyMine: false,
   });
 

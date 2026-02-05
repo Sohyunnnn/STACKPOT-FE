@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../App";
 import routes from "@constants/routes";
 import {
@@ -30,6 +30,9 @@ import {
   FeedDetailPage,
   ChatPage,
   FinishedPotDetailPage,
+  EngagementPage,
+  MyLikesPage,
+  MySavesPage,
 } from "@pages/index";
 
 const router = createBrowserRouter([
@@ -143,6 +146,25 @@ const router = createBrowserRouter([
       {
         path: `${routes.finishedPot}/:potId/:userId`,
         element: <FinishedPotDetailPage />,
+      },
+      {
+        path: routes.engagement.base,
+        element: <EngagementPage />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to={routes.engagement.likes} replace />,
+          },
+
+          {
+            path: routes.likes,
+            element: <MyLikesPage />,
+          },
+          {
+            path: routes.saves,
+            element: <MySavesPage />,
+          },
+        ],
       },
     ],
   },
